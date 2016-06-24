@@ -12,6 +12,8 @@
 		3CFE7D851D1D8C2500473838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE7D831D1D8C2500473838 /* Main.storyboard */; };
 		3CFE7D871D1D8C2600473838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE7D861D1D8C2600473838 /* Assets.xcassets */; };
 		3CFE7D8A1D1D8C2600473838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE7D881D1D8C2600473838 /* LaunchScreen.storyboard */; };
+		8C508F1B1D1DC7790096ED00 /* HerokuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C508F1A1D1DC7790096ED00 /* HerokuClient.swift */; };
+		8C508F1E1D1DD11C0096ED00 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C508F1D1D1DD11C0096ED00 /* Game.swift */; };
 		8CDA67B61D1D9DD800A5688A /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDA67B51D1D9DD800A5688A /* BaseAPIClient.swift */; };
 		8CDA67B91D1D9E4F00A5688A /* DispatchUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDA67B81D1D9E4F00A5688A /* DispatchUtility.swift */; };
 		8CDA67C41D1DAA6900A5688A /* changelog.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8CDA67BD1D1DAA6900A5688A /* changelog.txt */; };
@@ -29,6 +31,8 @@
 		3CFE7D861D1D8C2600473838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CFE7D891D1D8C2600473838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CFE7D8B1D1D8C2600473838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C508F1A1D1DC7790096ED00 /* HerokuClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HerokuClient.swift; sourceTree = "<group>"; };
+		8C508F1D1D1DD11C0096ED00 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8CDA67B51D1D9DD800A5688A /* BaseAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
 		8CDA67B81D1D9E4F00A5688A /* DispatchUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchUtility.swift; sourceTree = "<group>"; };
 		8CDA67BD1D1DAA6900A5688A /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		3CFE7D7E1D1D8C2500473838 /* RhymeGame */ = {
 			isa = PBXGroup;
 			children = (
+				8C508F1F1D1DD88A0096ED00 /* UI */,
+				8C508F1C1D1DD1090096ED00 /* Model */,
 				8CDA67BB1D1DAA2000A5688A /* Frameworks */,
 				8CDA67BA1D1DA07D00A5688A /* Logic */,
 				8CDA67B71D1D9E4000A5688A /* Utility */,
@@ -83,10 +89,26 @@
 			path = RhymeGame;
 			sourceTree = "<group>";
 		};
+		8C508F1C1D1DD1090096ED00 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8C508F1D1D1DD11C0096ED00 /* Game.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8C508F1F1D1DD88A0096ED00 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		8CDA67B41D1D9D7C00A5688A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				8CDA67B51D1D9DD800A5688A /* BaseAPIClient.swift */,
+				8C508F1A1D1DC7790096ED00 /* HerokuClient.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -182,6 +204,7 @@
 				TargetAttributes = {
 					3CFE7D7B1D1D8C2500473838 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = C48PVCC83Z;
 					};
 				};
 			};
@@ -224,7 +247,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C508F1B1D1DC7790096ED00 /* HerokuClient.swift in Sources */,
 				8CDA67C91D1DACF100A5688A /* SpeechKitManager.swift in Sources */,
+				8C508F1E1D1DD11C0096ED00 /* Game.swift in Sources */,
 				8CDA67B91D1D9E4F00A5688A /* DispatchUtility.swift in Sources */,
 				3CFE7D821D1D8C2500473838 /* ViewController.swift in Sources */,
 				3CFE7D801D1D8C2500473838 /* AppDelegate.swift in Sources */,
@@ -343,6 +368,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RhymeGame/speechkit-iOS-2.1.6",
@@ -352,6 +380,8 @@
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_BUNDLE_IDENTIFIER = digiflare.RhymeGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -359,6 +389,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RhymeGame/speechkit-iOS-2.1.6",
@@ -368,6 +401,7 @@
 				OTHER_LDFLAGS = "-l\"c++\"";
 				PRODUCT_BUNDLE_IDENTIFIER = digiflare.RhymeGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
