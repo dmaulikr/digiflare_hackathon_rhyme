@@ -17,8 +17,10 @@ class ViewController: UIViewController, SpeechKitManagerUpdateProtocol, UITableV
     
     let tableView: UITableView = UITableView.init()
     let recordButton: UIButton = UIButton(type: .Custom)
-    let synthesizer = AVSpeechSynthesizer()
     let cellReuseIdentifer = "Cell"
+    
+    var myScore:Int = 0
+    var compScore:Int = 0
     
     let displayRecordingImageView: UIImageView = UIImageView(image: UIImage.init(named: "listenIcon"))
     
@@ -86,9 +88,7 @@ class ViewController: UIViewController, SpeechKitManagerUpdateProtocol, UITableV
         let chatItem = ChatItem(text: chat, isYou: isYou, points:points)
         
         if (!isYou) {
-            let utterance = AVSpeechUtterance(string: chat)
-            utterance.rate = 0.2
-            synthesizer.speakUtterance(utterance)
+            manager.speakString(chat)
         }
         chatLog.append(chatItem)
         tableView.reloadData()
@@ -132,6 +132,11 @@ class ViewController: UIViewController, SpeechKitManagerUpdateProtocol, UITableV
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 100.0
+    }
+    
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Score:\(myScore)    |   Computer:\(compScore)"
     }
     
 }

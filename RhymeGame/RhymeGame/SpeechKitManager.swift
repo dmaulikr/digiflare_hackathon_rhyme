@@ -92,6 +92,7 @@ class SpeechKitManager: NSObject, SKTransactionDelegate{
     
     func transaction(transaction: SKTransaction!, didReceiveAudio audio: SKAudio!) {
         print("Speech Kit did Receive Audio")
+        session.audioPlayer.playAudio(audio)
     }
     
     func transaction(transaction: SKTransaction!, didFinishWithSuggestion suggestion: String!) {
@@ -108,5 +109,10 @@ class SpeechKitManager: NSObject, SKTransactionDelegate{
                                 detection: detection,
                                 language: "eng-USA",
                                 delegate: self)
+    }
+    
+    func speakString(chat:String){
+        let options = [SKOptionsAutoPlayTTSKey: true];
+        let _ = session.speakString(chat, withVoice: "Samantha", options:options, delegate: self)
     }
 }
