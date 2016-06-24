@@ -9,13 +9,13 @@
 import Foundation
 import SpeechKit
 
-class SpeechKitSessionManager: NSObject, SKTransactionDelegate{
+class SpeechKitManager: NSObject, SKTransactionDelegate{
     
     private let session:SKSession
     private let sKSAppKey:String = "b3d613f5764bf44ce62c08b0105c2a671560b9ddb48a265205d77d31142e63c70476bc7ac2b0c6a8ddce58ed2a825540e30e1d979944e99e1b66cf2f9432f698"
     private let serverURL:String = "nmsps://NMDPTRIAL_sergey_gavrilyuk_gmail_com20160624105026@sslsandbox.nmdp.nuancemobility.net:443"
     
-    static let sharedInstance = SpeechKitSessionManager();
+    static let sharedInstance = SpeechKitManager();
 
     private override init() {
         
