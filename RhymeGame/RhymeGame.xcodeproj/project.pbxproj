@@ -12,6 +12,8 @@
 		3CFE7D851D1D8C2500473838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE7D831D1D8C2500473838 /* Main.storyboard */; };
 		3CFE7D871D1D8C2600473838 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE7D861D1D8C2600473838 /* Assets.xcassets */; };
 		3CFE7D8A1D1D8C2600473838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFE7D881D1D8C2600473838 /* LaunchScreen.storyboard */; };
+		8CDA67B61D1D9DD800A5688A /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDA67B51D1D9DD800A5688A /* BaseAPIClient.swift */; };
+		8CDA67B91D1D9E4F00A5688A /* DispatchUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDA67B81D1D9E4F00A5688A /* DispatchUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		3CFE7D861D1D8C2600473838 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CFE7D891D1D8C2600473838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CFE7D8B1D1D8C2600473838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CDA67B51D1D9DD800A5688A /* BaseAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
+		8CDA67B81D1D9E4F00A5688A /* DispatchUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		3CFE7D7E1D1D8C2500473838 /* RhymeGame */ = {
 			isa = PBXGroup;
 			children = (
+				8CDA67B71D1D9E4000A5688A /* Utility */,
+				8CDA67B41D1D9D7C00A5688A /* Networking */,
 				3CFE7D7F1D1D8C2500473838 /* AppDelegate.swift */,
 				3CFE7D811D1D8C2500473838 /* ViewController.swift */,
 				3CFE7D831D1D8C2500473838 /* Main.storyboard */,
@@ -62,6 +68,22 @@
 				3CFE7D8B1D1D8C2600473838 /* Info.plist */,
 			);
 			path = RhymeGame;
+			sourceTree = "<group>";
+		};
+		8CDA67B41D1D9D7C00A5688A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8CDA67B51D1D9DD800A5688A /* BaseAPIClient.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		8CDA67B71D1D9E4000A5688A /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				8CDA67B81D1D9E4F00A5688A /* DispatchUtility.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDA67B91D1D9E4F00A5688A /* DispatchUtility.swift in Sources */,
 				3CFE7D821D1D8C2500473838 /* ViewController.swift in Sources */,
 				3CFE7D801D1D8C2500473838 /* AppDelegate.swift in Sources */,
+				8CDA67B61D1D9DD800A5688A /* BaseAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +312,7 @@
 				3CFE7D901D1D8C2600473838 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
