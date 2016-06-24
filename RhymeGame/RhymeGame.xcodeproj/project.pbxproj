@@ -18,6 +18,7 @@
 		8CDA67C51D1DAA6900A5688A /* speex-license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8CDA67C01D1DAA6900A5688A /* speex-license.txt */; };
 		8CDA67C61D1DAA6900A5688A /* Nuance NDEV Mobile Evaluation Agreement - US 012902014.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8CDA67C21D1DAA6900A5688A /* Nuance NDEV Mobile Evaluation Agreement - US 012902014.txt */; };
 		8CDA67C71D1DAA6900A5688A /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDA67C31D1DAA6900A5688A /* SpeechKit.framework */; };
+		8CDA67C91D1DACF100A5688A /* SpeechKitSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDA67C81D1DACF100A5688A /* SpeechKitSessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8CDA67C01D1DAA6900A5688A /* speex-license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "speex-license.txt"; sourceTree = "<group>"; };
 		8CDA67C21D1DAA6900A5688A /* Nuance NDEV Mobile Evaluation Agreement - US 012902014.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Nuance NDEV Mobile Evaluation Agreement - US 012902014.txt"; sourceTree = "<group>"; };
 		8CDA67C31D1DAA6900A5688A /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpeechKit.framework; sourceTree = "<group>"; };
+		8CDA67C81D1DACF100A5688A /* SpeechKitSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechKitSessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				8CDA67BB1D1DAA2000A5688A /* Frameworks */,
-				8CDA67BA1D1DA07D00A5688A /* GameLogic */,
+				8CDA67BA1D1DA07D00A5688A /* Logic */,
 				8CDA67B71D1D9E4000A5688A /* Utility */,
 				8CDA67B41D1D9D7C00A5688A /* Networking */,
 				3CFE7D7F1D1D8C2500473838 /* AppDelegate.swift */,
@@ -97,11 +99,12 @@
 			name = Utility;
 			sourceTree = "<group>";
 		};
-		8CDA67BA1D1DA07D00A5688A /* GameLogic */ = {
+		8CDA67BA1D1DA07D00A5688A /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				8CDA67C81D1DACF100A5688A /* SpeechKitSessionManager.swift */,
 			);
-			name = GameLogic;
+			name = Logic;
 			sourceTree = "<group>";
 		};
 		8CDA67BB1D1DAA2000A5688A /* Frameworks */ = {
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDA67C91D1DACF100A5688A /* SpeechKitSessionManager.swift in Sources */,
 				8CDA67B91D1D9E4F00A5688A /* DispatchUtility.swift in Sources */,
 				3CFE7D821D1D8C2500473838 /* ViewController.swift in Sources */,
 				3CFE7D801D1D8C2500473838 /* AppDelegate.swift in Sources */,

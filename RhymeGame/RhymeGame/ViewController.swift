@@ -7,12 +7,24 @@
 //
 
 import UIKit
+import SpeechKit
 
 class ViewController: UIViewController {
-
+    
+    let tableView: UITableView = UITableView.init()
+    let recordButton: UIButton = UIButton(type: .Custom)
+    
+    let recordingImageView: UIImageView = UIImageView(image: UIImage.init(named: ""))
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        
+        let manager:SpeechKitSessionManager = SpeechKitSessionManager.sharedInstance
+        manager.recordSpeech(SKTransactionSpeechTypeDictation, detection: .Short)
+        
         
         let baseAPIClient: BaseAPIClient = BaseAPIClient.init(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         
