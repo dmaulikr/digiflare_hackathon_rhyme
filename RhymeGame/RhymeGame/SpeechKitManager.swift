@@ -31,6 +31,7 @@ class SpeechKitManager: NSObject, SKTransactionDelegate{
     private let serverURL:String = "nmsps://NMDPTRIAL_sergey_gavrilyuk_gmail_com20160624105026@sslsandbox.nmdp.nuancemobility.net:443"
     var state: SpeechKitManagerState = .Unknown
     var delegate: SpeechKitManagerUpdateProtocol?
+    var didAskForAudio:Bool = false
     
     override init() {
 
@@ -72,14 +73,7 @@ class SpeechKitManager: NSObject, SKTransactionDelegate{
             }
             //make a tile for the computers rhyme
             self.delegate?.speechKitManagerUpdateChat(rhyme, isYou: false, points: 100)
-            
         }
-        //Or iterate through the NBest list
-//        let nBest = recognition.details;
-//        for phrase in (nBest as! [SKRecognizedPhrase]!) {
-//            let text = phrase.text;
-//            let confidence = phrase.confidence;
-//        }
     }
     
     func transaction(transaction: SKTransaction!, didReceiveInterpretation interpretation: SKInterpretation!) {
@@ -92,7 +86,10 @@ class SpeechKitManager: NSObject, SKTransactionDelegate{
     
     func transaction(transaction: SKTransaction!, didReceiveAudio audio: SKAudio!) {
         print("Speech Kit did Receive Audio")
-        session.audioPlayer.playAudio(audio)
+        if(didAskForAudio) {
+            session.audioPlayer.playAudio(audio)
+            didAskForAudio = false
+        }
     }
     
     func transaction(transaction: SKTransaction!, didFinishWithSuggestion suggestion: String!) {
@@ -113,6 +110,8 @@ class SpeechKitManager: NSObject, SKTransactionDelegate{
     
     func speakString(chat:String){
         let options = [SKOptionsAutoPlayTTSKey: true];
+        didAskForAudio = true
         let _ = session.speakString(chat, withVoice: "Samantha", options:options, delegate: self)
+        
     }
 }

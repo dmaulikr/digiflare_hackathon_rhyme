@@ -37,19 +37,21 @@ class ViewController: UIViewController, SpeechKitManagerUpdateProtocol, UITableV
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifer)
         
-        tableView.topAnchor.constraintEqualToAnchor(self.view.topAnchor).active = true
+        tableView.topAnchor.constraintEqualToAnchor(self.view.topAnchor, constant: 20 ).active = true
         tableView.leadingAnchor.constraintEqualToAnchor(self.view.leadingAnchor).active = true
-        tableView.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
+        tableView.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -150).active = true
         tableView.trailingAnchor.constraintEqualToAnchor(self.view.trailingAnchor).active = true
         
         self.view.addSubview(recordButton)
-        recordButton.setTitle("Rec", forState: .Normal)
-        recordButton.backgroundColor = UIColor.blueColor()
+        recordButton.setImage(UIImage.init(named: "rmVoIPRecordButton-01-300x300"), forState: .Normal)
         recordButton.addTarget(self, action: #selector(record(_:)), forControlEvents: .TouchUpInside)
+        recordButton.contentMode = UIViewContentMode.ScaleAspectFit
         
         recordButton.translatesAutoresizingMaskIntoConstraints = false
         recordButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
         recordButton.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        recordButton.heightAnchor.constraintEqualToConstant(150).active = true
+        recordButton.widthAnchor.constraintEqualToConstant(150).active = true
         
         self.view.addSubview(displayRecordingImageView)
         displayRecordingImageView.hidden = true
@@ -60,13 +62,6 @@ class ViewController: UIViewController, SpeechKitManagerUpdateProtocol, UITableV
         displayRecordingImageView.leadingAnchor.constraintEqualToAnchor(self.view.leadingAnchor).active = true
         displayRecordingImageView.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
         displayRecordingImageView.trailingAnchor.constraintEqualToAnchor(self.view.trailingAnchor).active = true
-        
-
-        let herokuClient:HerokuClient = HerokuClient()
-        
-        herokuClient.fetchRhyme("test") { (data:[String : AnyObject]?, nsURLResponse:NSURLResponse?, error:NSError?) in
-            
-        }
     }
 
     func speechKitManagerStateDidChange(state: SpeechKitManagerState, info: SKTransaction?) {
@@ -124,9 +119,7 @@ class ViewController: UIViewController, SpeechKitManagerUpdateProtocol, UITableV
             cell.backgroundView = UIImageView(image: UIImage.init(named: "balloon_read_right")?.resizableImageWithCapInsets(UIEdgeInsets(top: 10,left: 17,bottom: 15,right: 17)))
         }
         
-        
         return cell
-        
     }
     
     
@@ -136,7 +129,7 @@ class ViewController: UIViewController, SpeechKitManagerUpdateProtocol, UITableV
     
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Score:\(myScore)    |   Computer:\(compScore)"
+        return "Score:\(myScore)"
     }
     
 }

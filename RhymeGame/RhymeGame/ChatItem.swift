@@ -1,5 +1,5 @@
 //
-//  Game.swift
+//  ChatItem.swift
 //  RhymeGame
 //
 //  Created by Kevin Kruusi on 2016-06-24.
