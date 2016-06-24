@@ -85,11 +85,11 @@ class BaseAPIClient{
                     if let _data = data{
                         do{
                             
-                            let json = try NSJSONSerialization.JSONObjectWithData(_data, options: .MutableContainers)
+                            let json = try NSJSONSerialization.JSONObjectWithData(_data, options: [])
                             run_on_main({ () -> Void in
                                 completion(json, http, nil)
                             })
-                        }catch{
+                        }catch let error as NSError {
                             
                             if(http.statusCode == 200){
                                 
@@ -100,7 +100,7 @@ class BaseAPIClient{
                                             
                                             if let image:UIImage = UIImage(data: _data){
                                                 run_on_main({ () -> Void in
-                                                    completion(image, http, nil)
+                                                    completion(image, http, error)
                                                 })
                                                 return
                                             }else{
@@ -110,7 +110,7 @@ class BaseAPIClient{
                                     }
                                 }
                                 run_on_main({ () -> Void in
-                                    completion(_data, http, nil)
+                                    completion(_data, http, error)
                                 })
                                 return
                             }else if(http.statusCode == 404){
@@ -123,6 +123,8 @@ class BaseAPIClient{
                             run_on_main({ () -> Void in
                                 completion(nil, http, NSError(domain:self.kBaseAPIClient_ErrorDomain, code:10, userInfo:["message":"cannot translate returned data", "data": _data]))
                             })
+                            
+                        } catch {
                             
                         }
                     }else{

@@ -58,6 +58,7 @@
 		3CFE7D7E1D1D8C2500473838 /* RhymeGame */ = {
 			isa = PBXGroup;
 			children = (
+				8CDA67BA1D1DA07D00A5688A /* GameLogic */,
 				8CDA67B71D1D9E4000A5688A /* Utility */,
 				8CDA67B41D1D9D7C00A5688A /* Networking */,
 				3CFE7D7F1D1D8C2500473838 /* AppDelegate.swift */,
@@ -84,6 +85,13 @@
 				8CDA67B81D1D9E4F00A5688A /* DispatchUtility.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		8CDA67BA1D1DA07D00A5688A /* GameLogic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GameLogic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
