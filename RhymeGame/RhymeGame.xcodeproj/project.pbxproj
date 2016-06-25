@@ -73,7 +73,7 @@
 		3CFE7D7E1D1D8C2500473838 /* RhymeGame */ = {
 			isa = PBXGroup;
 			children = (
-				8C7781F11D1DF85400DB0611 /* UI */,
+				8C7781F11D1DF85400DB0611 /* ViewControllers */,
 				8CDA67BB1D1DAA2000A5688A /* Frameworks */,
 				8C508F1C1D1DD1090096ED00 /* Model */,
 				8CDA67BA1D1DA07D00A5688A /* Logic */,
@@ -96,12 +96,12 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		8C7781F11D1DF85400DB0611 /* UI */ = {
+		8C7781F11D1DF85400DB0611 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				3CFE7D811D1D8C2500473838 /* ViewController.swift */,
 			);
-			name = UI;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		8CDA67B41D1D9D7C00A5688A /* Networking */ = {

@@ -29,15 +29,15 @@ class SpeechKitManager: NSObject, SKTransactionDelegate{
     private let session:SKSession
     private let sKSAppKey:String = "b3d613f5764bf44ce62c08b0105c2a671560b9ddb48a265205d77d31142e63c70476bc7ac2b0c6a8ddce58ed2a825540e30e1d979944e99e1b66cf2f9432f698"
     private let serverURL:String = "nmsps://NMDPTRIAL_sergey_gavrilyuk_gmail_com20160624105026@sslsandbox.nmdp.nuancemobility.net:443"
+    
+    let herokuClient:HerokuClient = HerokuClient()
+    
     var state: SpeechKitManagerState = .Unknown
     var delegate: SpeechKitManagerUpdateProtocol?
-    var didAskForAudio:Bool = false
     
     override init() {
-
         let url:NSURL = NSURL(string: serverURL)!
         session = SKSession(URL: url, appToken: sKSAppKey)
-        
         super.init()
     }
     
@@ -58,10 +58,8 @@ class SpeechKitManager: NSObject, SKTransactionDelegate{
         
         //Take the best result
         let topRecognitionText = recognition.text;
-        //notify view to write your rhyme
-        
-        
-        let herokuClient:HerokuClient = HerokuClient()
+      
+  
         
         herokuClient.fetchRhyme(topRecognitionText) { (data:[String : AnyObject]?, nsURLResponse:NSURLResponse?, error:NSError?) in
             
@@ -86,10 +84,7 @@ class SpeechKitManager: NSObject, SKTransactionDelegate{
     
     func transaction(transaction: SKTransaction!, didReceiveAudio audio: SKAudio!) {
         print("Speech Kit did Receive Audio")
-        if(didAskForAudio) {
-            session.audioPlayer.playAudio(audio)
-            didAskForAudio = false
-        }
+        session.audioPlayer.playAudio(audio)
     }
     
     func transaction(transaction: SKTransaction!, didFinishWithSuggestion suggestion: String!) {
@@ -108,10 +103,8 @@ class SpeechKitManager: NSObject, SKTransactionDelegate{
                                 delegate: self)
     }
     
-    func speakString(chat:String){
+    func speakStringOnce(chat:String){
         let options = [SKOptionsAutoPlayTTSKey: true];
-        didAskForAudio = true
         let _ = session.speakString(chat, withVoice: "Samantha", options:options, delegate: self)
-        
     }
 }

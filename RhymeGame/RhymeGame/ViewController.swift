@@ -62,6 +62,7 @@ class ViewController: UIViewController, SpeechKitManagerUpdateProtocol, UITableV
         displayRecordingImageView.leadingAnchor.constraintEqualToAnchor(self.view.leadingAnchor).active = true
         displayRecordingImageView.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
         displayRecordingImageView.trailingAnchor.constraintEqualToAnchor(self.view.trailingAnchor).active = true
+        
     }
 
     func speechKitManagerStateDidChange(state: SpeechKitManagerState, info: SKTransaction?) {
@@ -83,10 +84,11 @@ class ViewController: UIViewController, SpeechKitManagerUpdateProtocol, UITableV
         let chatItem = ChatItem(text: chat, isYou: isYou, points:points)
         
         if (!isYou) {
-            manager.speakString(chat)
+            manager.speakStringOnce(chat)
         }
         chatLog.append(chatItem)
         tableView.reloadData()
+        tableView.scrollToRowAtIndexPath(NSIndexPath.init(forItem: chatLog.count - 1, inSection: 0), atScrollPosition: .Bottom, animated: true)
     }
     
     func record(sender:UIButton) {
